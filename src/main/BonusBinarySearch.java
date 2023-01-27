@@ -16,12 +16,22 @@ public class BonusBinarySearch {
         int left = 0;
         while (right >= left) {
             int mid = left + ((right - left) / 2);
+//            System.out.println("left: " + left);
+//            System.out.println("right: " + right);
+//            System.out.println("mid: " + mid);
             if (sortedNumbers[mid] > n) {
                 right = mid;
             } else if (sortedNumbers[mid] < n) {
                 left = mid;
             } else {
                 return mid;
+            }
+            if (right - mid == 1) {
+                if (sortedNumbers[right] == n) {
+                    return right;
+                } else {
+                    break;
+                }
             }
         }
         return -1;
